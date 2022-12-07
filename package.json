@@ -1,0 +1,15 @@
+{
+  "name": "ll1-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx tsc && node dist/index.js"
+  },
+  "author": "Ellyzeul",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.9.3"
+  }
+}
