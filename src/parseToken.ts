@@ -8,7 +8,6 @@ const parseToken = (parser: Parser, token: string) => {
   let isParsing = true
 
   while(isParsing) {
-    console.log(top)
     if(top === token) {
       isParsing = false
       break
