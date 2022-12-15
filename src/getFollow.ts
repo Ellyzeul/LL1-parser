@@ -1,6 +1,7 @@
 import getFirst from "./getFirst"
 
 const getFollow = (headRule: string, rules: {[rule: string]: string[][]}, rule: string, inspected: {[key: string]: string[]}) => {
+  if(!!inspected[rule]) return inspected[rule]
   const follow = [] as string[]
   const { [rule]: _, ...toInspect } = rules
 

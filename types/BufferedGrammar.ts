@@ -1,7 +1,7 @@
 interface BufferedGrammar {
   headRule: string, 
   rules: {
-    [non_terminal: string]: string[][]
+    [rule: string]: string[][]
   }
 }
 
