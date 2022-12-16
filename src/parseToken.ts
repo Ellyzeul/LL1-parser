@@ -4,7 +4,7 @@ const parseToken = (parser: Parser, token: string) => {
   if(!parser.parsing_stack) parser.parsing_stack = [parser.headRule]
   const { parsing_table, parsing_stack } = parser
   const errors = [] as {expected: string[], got: string}[]
-  let top = parsing_stack.pop() as string | null
+  let top = parsing_stack.pop() || null
   let isParsing = true
 
   while(isParsing) {
@@ -12,19 +12,21 @@ const parseToken = (parser: Parser, token: string) => {
       isParsing = false
       break
     }
+    if(top === null && token === '$') {
+      break
+    }
     if(top === null) {
       pushError(errors, {'$': null}, token)
       break
     }
 
-    const rule = parsing_table[top][token] || null
+    const rule = Array.from(parsing_table[top][token]) || null
 
     if(rule === null) {
       parsing_stack.push(top)
       pushError(errors, parsing_table[top], token)
       break
     }
-
     if(rule[0] !== '@') parsing_stack.push(...rule.reverse())
     top = parsing_stack.pop() || null
   }
