@@ -2,11 +2,13 @@
   "name": "@ellyzeul_/ll1-parser",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "pretest": "npx tsc",
+    "build": "npx tsc",
+    "pretest": "npm run build",
     "test": "jest --verbose",
-    "start": "npx tsc && node dist/index.js"
+    "prepare": "npm run build"
   },
   "author": "Ellyzeul",
   "license": "ISC",
