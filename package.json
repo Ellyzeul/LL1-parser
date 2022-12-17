@@ -8,7 +8,6 @@
     "build": "npx tsc",
     "prepare": "npm run build",
     "pretest": "npm run build",
-    "start": "npm run build && node dist/index.js",
     "test": "jest --verbose"
   },
   "author": "Ellyzeul",
