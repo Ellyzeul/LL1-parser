@@ -11,7 +11,15 @@ interface Parser {
       [terminal: string]: string[]
     }
   },
-  parsing_stack?: string[]
+  parsing_stack?: string[],
+  parseToken: (token: string) => {
+    parsing_ended: boolean;
+    errors: {
+        expected: string[];
+        got: string;
+    }[];
+    has_errors: boolean;
+  }
 }
 
 export default Parser
