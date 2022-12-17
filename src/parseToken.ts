@@ -1,7 +1,7 @@
 import Parser from "../types/Parser"
 
 const parseToken = (parser: Parser, token: string) => {
-  if(!parser.parsing_stack) parser.parsing_stack = [parser.headRule]
+  if(parser.parsing_stack === null) parser.parsing_stack = [parser.headRule]
   const { parsing_table, parsing_stack } = parser
   const errors = [] as {expected: string[], got: string}[]
   let top = parsing_stack.pop() || null
@@ -13,6 +13,7 @@ const parseToken = (parser: Parser, token: string) => {
       break
     }
     if(top === null && token === '$') {
+      parser.parsing_stack = null
       break
     }
     if(top === null) {
@@ -40,7 +41,7 @@ const pushError = (errors: {expected: string[], got: string}[], tableRow: {[non_
 })
 
 const getReturn = (parser: Parser, errors: {expected: string[], got: string}[]) => ({
-  parsing_ended: parser.parsing_stack.length === 0,
+  parsing_ended: parser.parsing_stack === null,
   errors: errors,
   has_errors: errors.length > 0
 })

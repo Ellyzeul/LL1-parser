@@ -9,7 +9,8 @@ const generateParser = (grammar: Grammar) => {
   const { headRule, rules } = getBufferedGrammar(grammar)
   const parser = {
     headRule: headRule,
-    sets: {}
+    sets: {},
+    parsing_stack: null
   } as Parser
   const inspectedFollows = {}
 
