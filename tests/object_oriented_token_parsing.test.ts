@@ -1,19 +1,5 @@
 import { describe, it, expect } from "@jest/globals"
 import generateParser from "../src/generateParser";
-import parseToken from "../src/parseToken";
-
-/**
- * Original unfactored grammar
- * 
- * S -> A a | b
- * A -> Ac | Sd | ε
- * 
- * Factored grammar
- * 
- * S  -> A a | b
- * A  -> b d A' | A'
- * A' -> c A' | a d A' | ε
- */
 
 const parser = generateParser({
   headRule: '<S>',
