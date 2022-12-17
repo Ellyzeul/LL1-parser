@@ -58,10 +58,14 @@ The parser has some reserved symbols for internal processes. The symbols are the
 
 As for now, the parser only parses token by token, so an input should have been previously broke into tokens by a lexical analyzer.
 
-To parse tokens, the `parseToken` function should be used.
+To parse tokens, the `parseToken` function should be used on a procedural approach, or call the `parser.parseToken` method on an object-oriented approach.
 
 ```typescript
-const result = parseToken(testParser, '$')
+const result = parseToken(parser, '$')
+```
+Or
+```typescript
+const result = parser.parseToken('$')
 ```
 
 The `result` object will have the following object:
