@@ -13,7 +13,7 @@ rfactor   -> rfactor * | rprimary
 rprimary  -> a | b
 ```
 
-It have to be transformed, beforehand, into:
+It has to be transformed, beforehand, into:
 
 ```
 rexpr     -> rterm rexpr'
@@ -48,11 +48,11 @@ Any symbol wrapped around `<>` will be interpreted as a non-terminal.
 
 The parser has some reserved symbols for internal processes. The symbols are the following:
 
-| Symbol | What it means | User allowed to use |
-|--------|---------------|---------------------|
-|   v    | Empty input character | Yes |
-|   $    | End of string character | Yes |
-|   @    | Synchronizing token. A panic recovery feature for when the token is not on the First set, but on Follow set and the production rule allows empty input | No |
+| Symbol | What it means                                | User allowed to use |
+|--------|----------------------------------------------|---------------------|
+|   v    | Empty input character                        | Yes                 |
+|   $    | End of string character                      | Yes                 |
+|   @    | Synchronizing token. For panic recovery mode | No                  |
 
 ## Parsing tokens
 
