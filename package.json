@@ -11,7 +11,11 @@
     "test": "jest --verbose"
   },
   "author": "Ellyzeul",
-  "license": "ISC",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "github:Ellyzeul/LL1-parser"
+  },
   "dependencies": {
     "typescript": "^4.9.3"
   },
