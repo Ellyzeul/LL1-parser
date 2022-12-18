@@ -20,8 +20,15 @@ const parseToken = (parser: Parser, token: string) => {
       pushError(errors, {'$': null}, token)
       break
     }
+    if(top.charAt(0) !== '<') {
+      pushError(errors, {[top]: null}, token)
+      top = parsing_stack.pop() || null
+      continue
+    }
 
-    const rule = Array.from(parsing_table[top][token]) || null
+    const rule = parsing_table[top][token]
+      ? Array.from(parsing_table[top][token])
+      : null
 
     if(rule === null) {
       parsing_stack.push(top)
