@@ -1,5 +1,13 @@
 # LL1-parser
 
+To install this package, just run
+
+```bash
+npm i @ellyzeul_/ll1-parser
+```
+
+___
+
 A non-recursive predicative parser for LL(1) Grammars.
 
 The grammar should already be properly in LL(1) format for the parser to work as expected, there isn't any kind of automatic treatment.
